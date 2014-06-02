@@ -13,7 +13,7 @@ source=("http://deviousfish.com/Downloads/pianod/${pkgname}-${pkgver}.tar.gz"
 md5sums=('68ed14772e0caa1391da5aac9bbbf056'
         'a4f433a16ea2bc9a64dde9b035507b97'
         'a93d668815249a36710df53c9ca5a789')
-backup=('etc/pianod.startscript')
+backup=('etc/pianod.startscript' 'etc/pianod.env')
 
 prepare() {
   cd "${srcdir}/${pkgname}-${pkgver}/contrib"
