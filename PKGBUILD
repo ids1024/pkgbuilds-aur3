@@ -3,7 +3,7 @@
 
 pkgname=git-ftp-git
 _gitname=git-ftp
-pkgver=0.8.0.r135.g23171d6
+pkgver=0.8.0.r137.ga7ee732
 pkgrel=1
 pkgdesc="A shell script for pushing git tracked changed files to a remote host by FTP"
 url='https://github.com/git-ftp/git-ftp'
