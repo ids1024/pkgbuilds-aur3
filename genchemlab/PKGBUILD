@@ -1,0 +1,33 @@
+# Maintainer: Ian D. Scott <ian@perebruin.com>
+# Contributor: Anton Bazhenov <anton.bazhenov at gmail>
+# Contributor: Tutku Dalmaz <tutkudalmaz@gmail.com>>
+
+pkgname=genchemlab
+pkgver=1.0
+pkgrel=2
+pkgdesc="An application intended to simulate common general chemistry laboratory exercises"
+arch=('i686' 'x86_64')
+url="http://genchemlab.sourceforge.net/"
+license=('GPL')
+depends=('qt4')
+source=("http://downloads.sourceforge.net/${pkgname}/${pkgname}-${pkgver}.tgz"
+        "desktop-file.patch"
+	"qt4.patch")
+md5sums=('ef364cff3f3e2dba4c62a5d1a0084bae'
+         'ca2976a9c05e63682293b8137d5f6048'
+         'f37748806ae6ae24ee82b397cf31a8cb')
+
+build() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+
+  patch -Np1 -i ../desktop-file.patch
+  patch -Np1 -i ../qt4.patch
+
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  make DESTDIR="${pkgdir}" install
+}
